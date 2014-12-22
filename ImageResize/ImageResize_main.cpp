@@ -56,7 +56,7 @@ return 0;
 vector<string> getFilesInFolder(string folder)
 {
     vector<string> names;
-    char search_path[200];
+    char search_path[100];
     sprintf_s(search_path, "%s*.*", folder.c_str());
     WIN32_FIND_DATA fd; 
     HANDLE hFind = ::FindFirstFile(search_path, &fd); 
