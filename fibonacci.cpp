@@ -1,6 +1,6 @@
 //Simple program of Fibonacci seq with recursion
 //and with static vars
-//Dmytro Frolov Oct 2014
+//Dmytro Frolov, Oct 2014
 
 #include <iostream>
 using namespace std;
