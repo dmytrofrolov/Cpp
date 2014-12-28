@@ -1,0 +1,1 @@
+Some interesting projects from Deitel Learn C++ book
