@@ -26,7 +26,7 @@ int main(){
     if(primes.size() == 0){
         cout << "You entered prime number " << numForPF;
     } else {
-        cout << "Prime factorication: ";
+        cout << "Prime factors: ";
         for(int i = 0; i < primes.size(); i++){
             cout << primes[i] << " ";
         }
