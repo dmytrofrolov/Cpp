@@ -1,5 +1,5 @@
 //Simple program of Fibonacci seq with recursion
-//and with static vars
+//and with static variables
 //Dmytro Frolov, Oct 2014
 
 #include <iostream>
