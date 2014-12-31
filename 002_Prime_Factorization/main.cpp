@@ -12,18 +12,18 @@ using namespace std;
 int notPrime(int num);
 
 int main(){
-    vector<int> primes;
-    int numForPF = 0;
+    vector<int> primes;     //for Prime factors
+    int numForPF = 0;       // Number for Prime factorization
     cout << "Please, input number for Prime Factorization : ";
     cin >> numForPF;
-    int simplePrime = notPrime(numForPF);;
-    while(simplePrime){
+    int simplePrime = notPrime(numForPF);  //current smallest Prime factor
+    while(simplePrime){     // while numForPF is not prime, add current Prime factor to vector
         primes.push_back(simplePrime);
         numForPF/=simplePrime;
         simplePrime = notPrime(numForPF);
-        if(simplePrime==0)primes.push_back(numForPF);
+        if(simplePrime==0)primes.push_back(numForPF); // if numForPF is the last Prime factor
     }
-    if(primes.size() == 0){
+    if(primes.size() == 0){ //if there are none Prime factors (if numForPF is prime)
         cout << "You entered prime number " << numForPF;
     } else {
         cout << "Prime factors: ";
