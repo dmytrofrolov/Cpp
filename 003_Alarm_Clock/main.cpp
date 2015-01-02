@@ -17,13 +17,15 @@ int main() {
         cout << "Please enter minutes to alarm: ";
         int minutes = 0, seconds = 0;
         cin >> minutes;
+        cout << "Please enter seconds to alarm: ";
+        cin >> seconds;
         cout << "Print seconds? y/n : ";
         char isSeconds = 'n';
         cin >> isSeconds;
         time_t currentTime;
         time(&currentTime);
         time_t timeToAlarm = currentTime;
-        timeToAlarm+=minutes*60;
+        timeToAlarm+=minutes*60+seconds;
         int secondsTo = 0;
         while((secondsTo = abs(currentTime-timeToAlarm)) > 1){
             Sleep(1000);
@@ -39,9 +41,18 @@ int main() {
         cout << "Input hours: ";
         int hours = 0;
         cin >> hours;
+        while(hours > 23 || hours < 0){
+            cout << "ERROR! Invalid hours! It should be 00~23.\nInput hours: ";
+            cin >> hours;
+        }
+
         int minutes = 0;
         cout << "Input minutes: ";
         cin >> minutes;
+        while(minutes > 59 || minutes < 0){
+            cout << "ERROR! Invalid minutes! It should be 00~59.\nInput hours: ";
+            cin >> minutes;
+        }
         time_t currentTime;
         time(&currentTime);
 
