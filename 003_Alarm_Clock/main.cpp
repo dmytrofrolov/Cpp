@@ -21,7 +21,7 @@ int main() {
         cin >> seconds;
         cout << "Print seconds? y/n : ";
         char isSeconds = 'n';
-        cin >> isSeconds;
+        cin >> isSeconds;   
         time_t currentTime;
         time(&currentTime);
         time_t timeToAlarm = currentTime;
@@ -50,7 +50,7 @@ int main() {
         cout << "Input minutes: ";
         cin >> minutes;
         while(minutes > 59 || minutes < 0){
-            cout << "ERROR! Invalid minutes! It should be 00~59.\nInput hours: ";
+            cout << "ERROR! Invalid minutes! It should be 00~59.\nInput minutes: ";
             cin >> minutes;
         }
         time_t currentTime;
