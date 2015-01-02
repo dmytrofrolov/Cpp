@@ -25,7 +25,7 @@ int main() {
 
 
 bool isPrime(unsigned int number) {
-    for(int i = 2; i < ceil(sqrt(number)); i++)
+    for(unsigned int i = 2; i < ceil(sqrt(number)); i++)
         if(number%i==0)
             return false;
     return true;
