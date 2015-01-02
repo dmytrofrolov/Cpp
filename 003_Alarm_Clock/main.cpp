@@ -6,8 +6,10 @@
 #include <ctime>
 
 using namespace std;
+void playAlarm(int numberOfTimes);
 
 int main() {
+
     cout << "Timer - 1 \tAlarm - 2 \n Input : ";
     int choice = 0;
     cin >> choice;
@@ -15,19 +17,57 @@ int main() {
         cout << "Please enter minutes to alarm: ";
         int minutes = 0, seconds = 0;
         cin >> minutes;
-        while(minutes>0){
-            for(int i = 0; i < 60; i++) {
-                cout << i << " ";
-                Sleep(1000);
+        cout << "Print seconds? y/n : ";
+        char isSeconds = 'n';
+        cin >> isSeconds;
+        time_t currentTime;
+        time(&currentTime);
+        time_t timeToAlarm = currentTime;
+        timeToAlarm+=minutes*60;
+        int secondsTo = 0;
+        while((secondsTo = abs(currentTime-timeToAlarm)) > 1){
+            Sleep(1000);
+            time(&currentTime);
+            if(isSeconds=='y') {
+                cout << secondsTo << " ";
+                cout.flush();
             }
-            cout << endl;
-            minutes--;
         }
-        Beep(523,500);
+        playAlarm(8);
     }
-    else if(choice == 2){
+    else if(choice == 2) {
+        cout << "Input hours: ";
+        int hours = 0;
+        cin >> hours;
+        int minutes = 0;
+        cout << "Input minutes: ";
+        cin >> minutes;
+        time_t currentTime;
+        time(&currentTime);
 
+        struct tm alarmTime;
+        alarmTime = *localtime(&currentTime);
+        alarmTime.tm_hour = hours;
+        alarmTime.tm_min = minutes;
+        alarmTime.tm_sec = 0;
+        time_t timeToAlarm = mktime(&alarmTime);
+        if(currentTime-timeToAlarm > 1)timeToAlarm+=60*60*24;
+        while(abs(currentTime-timeToAlarm)>0){
+            Sleep(1000);
+            time(&currentTime);
+        }
+        playAlarm(8);
     }
-    cout << "Hello, World!" << endl;
     return 0;
+}
+
+
+void playAlarm(int numberOfTimes) {
+    for(int i = 0; i < numberOfTimes; i++){
+        for(int j = 0; j < 4; j++){
+            Beep(523,150);
+            Sleep(15);
+        }
+        Sleep(400);
+    }
 }
