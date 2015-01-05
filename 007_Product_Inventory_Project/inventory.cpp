@@ -26,3 +26,11 @@ void Inventory::printAll() {
                     << std::endl;
     }
 }
+
+float Inventory::summAllValue() const {
+    float tempValue = 0;
+    for(std::vector<Product>::iterator i = inventaryItems->begin(); i < inventaryItems->end(); i++){
+        tempValue+=i->getPrice() * i->getQuantity();
+    }
+    return tempValue;
+}
