@@ -8,7 +8,7 @@
 using namespace std;
 
 int main() {
-    unsigned long long steps = 0, n = 0, max = 0;
+    unsigned long long steps = 0, n = 0,max = 0;
     cout << "Input number to calculate: ";
     cin >> n;
     while(n!=1){
