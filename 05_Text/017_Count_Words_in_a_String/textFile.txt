@@ -1,0 +1,5 @@
+C++ (pronounced cee plus plus) is a general-purpose programming language. 
+
+It has imperative, object-oriented and generic programming features, while also providing the facilities for low-level memory manipulation.
+
+It is designed with a bias toward system programming (e.g., for use in embedded systems or operating system kernels), with performance, efficiency and flexibility of use as its design requirements. C++ has also been found useful in many other contexts, including desktop applications, servers (e.g. e-commerce, web search or SQL servers), performance-critical applications (e.g. telephone switches or space probes), and entertainment software.[3] C++ is a compiled language, with implementations of it available on many platforms and provided by various organizations, including the FSF, LLVM, Microsoft and Intel.
