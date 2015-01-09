@@ -9,15 +9,24 @@
 using namespace std;
 
 long int recursiveFactorial(unsigned int number);
+long int loopFactorial(unsigned int number);
 
 int main() {
     cout << recursiveFactorial(5) << endl;
+    cout << loopFactorial(5) << endl;
     return 0;
 }
-
 
 
 long int recursiveFactorial(unsigned int number) {
     if(number==1)return 1;
     else return number* recursiveFactorial(number-1);
+}
+
+long int loopFactorial(unsigned int number) {
+    long int factorial = 1;
+    while(number>1){
+        factorial*=number--;
+    }
+    return factorial;
 }
