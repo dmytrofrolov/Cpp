@@ -8,11 +8,16 @@
 
 using namespace std;
 
-int main() {
+long int recursiveFactorial(unsigned int number);
 
+int main() {
+    cout << recursiveFactorial(5) << endl;
     return 0;
 }
 
-long int recursiveFactorial(unsigned int number){
 
+
+long int recursiveFactorial(unsigned int number) {
+    if(number==1)return 1;
+    else return number* recursiveFactorial(number-1);
 }
