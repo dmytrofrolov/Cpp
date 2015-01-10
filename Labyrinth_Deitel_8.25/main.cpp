@@ -7,22 +7,23 @@ using namespace std;
 void mazeTraverse(char **maze, int size, int startingPoint[2], int direction[2]);
 int main() {
     fstream labyrinth;
-    labyrinth.open("labyrinth_1.txt");
+    labyrinth.open("labyrinth_20.txt");
     if(!labyrinth.is_open()){
         cout << "ERROR! With file opening" << endl;
         return -1;
     }
-    char row[100];
+    const int LAB_SIZE = 20;
+    char row[LAB_SIZE+1];
     char **maze;
     int startingPoint[2];
     int direction[2] = {0, -1};
-    maze = new char *[20];
-    for(int i = 0; i <20; i++)
-        maze[i] = new char[20];
+    maze = new char *[LAB_SIZE+1];
+    for(int i = 0; i <LAB_SIZE+1; i++)
+        maze[i] = new char[LAB_SIZE+1];
     int j = 0;
     while(!labyrinth.eof()){
         labyrinth >> row;
-        for(int i = 0; i<12; i++){
+        for(int i = 0; i<LAB_SIZE; i++){
             maze[j][i] = row[i];
             if(row[i]=='T'){
                 startingPoint[0]=j;
@@ -33,7 +34,7 @@ int main() {
         j++;
     }
 
-    mazeTraverse( maze, 12, startingPoint, direction);
+    mazeTraverse( maze, LAB_SIZE, startingPoint, direction);
     labyrinth.close();
     return 0;
 }
@@ -50,7 +51,7 @@ void mazeTraverse(char **maze, int size, int startingPoint[2], int direction[2])
             cout << maze[i][j] << " ";
         cout << endl;
     }
-    if((startingPoint[0]==11||startingPoint[0]==0||startingPoint[1]==0)){
+    if((startingPoint[0]==size-1||startingPoint[1]==size-1||startingPoint[0]==0||startingPoint[1]==0)){
         cout << "Found end! At : " << startingPoint[0] << " " << startingPoint[1] << endl;
         for(int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++)
@@ -89,6 +90,6 @@ void mazeTraverse(char **maze, int size, int startingPoint[2], int direction[2])
     startingPoint[1]+=direction[1];
     maze[startingPoint[0]][startingPoint[1]]='T';
     cout << endl;
-    mazeTraverse(maze, 12, startingPoint, direction);
+    mazeTraverse(maze, size, startingPoint, direction);
 
 }
