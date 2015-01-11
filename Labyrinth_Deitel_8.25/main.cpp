@@ -93,3 +93,5 @@ void mazeTraverse(char **maze, int size, int startingPoint[2], int direction[2])
     mazeTraverse(maze, size, startingPoint, direction);
 
 }
+
+//TODO add comments
