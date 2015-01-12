@@ -5,9 +5,26 @@ My C++ projects, tasks and simple programs
 
 
 Taken from Karan
-========
+======
 Mega Project List
 ========
+
+Content
+====
+* [01_Numbers](#01_numbers)
+* [02_Classic Algorithms](#02_classic-algorithms)
+* [03_Graph](#03_graph)
+* [04_Data Structures](#04_data-structures)
+* [05_Text](#05_text)
+* [06_Networking](#06_networking)
+* [07_Classes](#07_classes)
+* [08_Threading](#08_threading)
+* [09_Web](#09_web)
+* [10_Files](#10_files)
+* [11_Databases](#11_databases)
+* [12_Graphics and Multimedia](#12_graphics-and-multimedia)
+* [13_Security](#13_security)
+
 
 01_Numbers
 ---------
