@@ -26,7 +26,7 @@ Content
 * [13_Security](#13_security)
 
 
-01_Numbers  [To content&#8679;](#content)
+01_Numbers  
 ---------
 
 **Find PI to the Nth Digit** - Enter a number and have the program generate PI up to that many decimal places. Keep a limit to how far the program will go.
@@ -73,6 +73,8 @@ Content
 
 ~~**Fast Exponentiation** - Ask the user to enter 2 integers a and b and output a^b (i.e. pow(a,b)) in O(lg n) time complexity.~~
 
+[To content&#8679;](#content)
+
 02_Classic Algorithms
 -----------------
 
@@ -84,6 +86,7 @@ Content
 
 **Sieve of Eratosthenes** - The sieve of Eratosthenes is one of the most efficient ways to find all of the smaller primes (below 10 million or so).
 
+[To content&#8679;](#content)
 
 03_Graph
 --------
@@ -96,12 +99,14 @@ Content
 
 **Dijkstra’s Algorithm** - Create a program that finds the shortest path through a graph using its edges.
 
+[To content&#8679;](#content)
 
 04_Data Structures
 ---------
 
 **Inverted index** - An [Inverted Index](http://en.wikipedia.org/wiki/Inverted_index) is a data structure used to create full text search. Given a set of text files, implement a program to create an inverted index. Also create a user interface to do a search using that inverted index which returns a list of files that contain the query term / terms. The search index can be in memory.
 
+[To content&#8679;](#content)
 
 05_Text
 ---------
@@ -132,6 +137,7 @@ Content
 
 **Cross-word generator** - Program what using the dictionary can generate cross-words.
 
+[To content&#8679;](#content)
 
 06_Networking
 ---------
@@ -150,6 +156,7 @@ Content
 
 **Site Checker with Time Scheduling** - An application that attempts to connect to a website or server every so many minutes or a given time and check if it is up. If it is down, it will notify you by email or by posting a notice on screen.
 
+[To content&#8679;](#content)
 
 07_Classes
 ---------
@@ -175,6 +182,7 @@ After you've established an employee hierarchy, create a Company class that allo
 
 **Family Tree Creator** - Create a class called Person which will have a name, when they were born and when (and if) they died. Allow the user to create these Person classes and put them into a family tree structure. Print out the tree to the screen.
 
+[To content&#8679;](#content)
 
 08_Threading
 ---------
@@ -183,6 +191,7 @@ After you've established an employee hierarchy, create a Company class that allo
 
 **Bulk Thumbnail Creator** - Picture processing can take a bit of time for some transformations. Especially if the image is large. Create an image program which can take hundreds of images and converts them to a specified size in the background thread while you do other things. For added complexity, have one thread handling re-sizing, have another bulk renaming of thumbnails etc.
 
+[To content&#8679;](#content)
 
 09_Web
 ---------
@@ -207,6 +216,8 @@ After you've established an employee hierarchy, create a Company class that allo
 
 **Sitemap generator** - Ask user for web-link and generate sitemap.xml file. *Optional: Allow some additional options (Depth, Pages limit, etc)*
 
+[To content&#8679;](#content)
+
 10_Files
 ---------
 
@@ -222,6 +233,7 @@ After you've established an employee hierarchy, create a Company class that allo
 
 **Code Snippet Manager** - Another utility program that allows coders to put in functions, classes or other tidbits to save for use later. Organized by the type of snippet or language the coder can quickly look up code. *Optional: For extra practice try adding syntax highlighting based on the language.*
 
+[To content&#8679;](#content)
 
 11_Databases
 ---------
@@ -240,6 +252,7 @@ After you've established an employee hierarchy, create a Company class that allo
 
 **Travel Planner System** - Make a system that allows users to put together their own little travel itinerary and keep track of the airline / hotel arrangements, points of interest, budget and schedule.
 
+[To content&#8679;](#content)
 
 12_Graphics and Multimedia
 ---------
@@ -256,12 +269,14 @@ After you've established an employee hierarchy, create a Company class that allo
 
 **GIF Creator** A program that puts together multiple images (PNGs, JPGs, TIFFs) to make a smooth GIF that can be exported. *Optional: Make the program convert small video files to GIFs as well.*
 
+[To content&#8679;](#content)
 
 13_Security
 -------------
 
 **Caesar cipher** - Implement a Caesar cipher, both encoding and decoding. The key is an integer from 1 to 25. This cipher rotates the letters of the alphabet (A to Z). The encoding replaces each letter with the 1st to 25th next letter in the alphabet (wrapping Z to A). So key 2 encrypts "HI" to "JK", but key 20 encrypts "HI" to "BC". This simple "monoalphabetic substitution cipher" provides almost no security, because an attacker who has the encoded message can either use frequency analysis to guess the key, or just try all 25 keys.
 
+[To content&#8679;](#content)
 
 Sources
 =======
