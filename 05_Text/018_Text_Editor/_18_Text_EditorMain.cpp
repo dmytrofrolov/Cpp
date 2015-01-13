@@ -138,3 +138,9 @@ void _18_Text_Editor_Dialog::OnAbout(wxCommandEvent &event)
     msg+='\n'+TextArea1->GetValue();
     wxMessageBox(msg, _("Welcome to..."));
 }
+
+
+//TODO :
+// - add change encoding
+// - change UI
+// - add syntax highlight

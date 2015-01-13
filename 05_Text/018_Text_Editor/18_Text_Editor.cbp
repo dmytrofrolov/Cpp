@@ -44,8 +44,6 @@
 		</Linker>
 		<Unit filename="README.md">
 			<Option compilerVar="CC" />
-			<Option compile="1" />
-			<Option link="1" />
 		</Unit>
 		<Unit filename="_18_Text_EditorApp.cpp" />
 		<Unit filename="_18_Text_EditorApp.h" />
