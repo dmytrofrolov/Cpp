@@ -3,12 +3,10 @@
  * Purpose:   Defines Application Class
  * Author:    Dmytro Frolov (dimaf@i.ua)
  * Created:   2015-01-11
- * Copyright: Dmytro Frolov ()
- * License:
  **************************************************************/
 
-#ifndef _18_TEXT_EDITORAPP_H
-#define _18_TEXT_EDITORAPP_H
+#ifndef _18_Text_EditorApp_H
+#define _18_Text_EditorApp_H
 
 #include <wx/app.h>
 
@@ -18,4 +16,4 @@ class _18_Text_EditorApp : public wxApp
         virtual bool OnInit();
 };
 
-#endif // _18_TEXT_EDITORAPP_H
+#endif // _18_Text_EditorApp_H
