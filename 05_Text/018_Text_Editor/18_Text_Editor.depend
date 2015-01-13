@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1385309676 source:d:\frolov\cpp\cpp\05_text\018_text_editor\resource.rc
+	"wx/msw/wx.rc"
+
+1412627644 d:\frolov\codeblocks\mingw\wxwidgets\include\wx\msw\wx.rc
+	<windows.h>
+	"wx/msw/wince/wince.rc"
+	"wx/msw/rcdefs.h"
+
+1412627644 d:\frolov\codeblocks\mingw\wxwidgets\include\wx\msw\wince\wince.rc
+	<commctrl.h>
+	"wx/msw/wince/resources.h"
+	"wx/msw/wince/smartphone.rc"
+
+1412627644 d:\frolov\codeblocks\mingw\wxwidgets\include\wx\msw\wince\resources.h
+
+1412627644 d:\frolov\codeblocks\mingw\wxwidgets\include\wx\msw\wince\smartphone.rc
+	<aygshell.h>
+
+1412627644 d:\frolov\codeblocks\mingw\wxwidgets\include\wx\msw\rcdefs.h
+
