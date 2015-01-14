@@ -1,12 +1,13 @@
-//Simple program of Fibonacci seq with recursion
-//and with static variables
-//Dmytro Frolov, Oct 2014
+//Fibonacci Sequence - Enter a number and have the program generate
+// the Fibonacci sequence to that number or to the Nth number.
+//Implemented by recursion and with static variables
+//Dmytro Frolov
 
 #include <iostream>
 using namespace std;
 
 unsigned int fibo(int n);
-unsigned int fiboRec(int n);
+unsigned int fiboRec(int n);    //find seq element number N
 
 int main()
 {
@@ -17,7 +18,20 @@ int main()
     if (rec)
         cout << fiboRec(n);
     else
-        cout << fibo(n);
+        cout << fibo(n) << endl << endl;
+
+    cout << "How much Fibo elements do you want? : ";
+    cin >> n;
+
+    for(int i = 0; i<n; i++)
+        cout << fibo(i) << " ";
+    cout << endl;
+
+
+    cout << endl << "To what number genetate the seq? : ";
+    cin >> n;
+    for(int i = 0; fibo(i)<n; i++)cout << fibo(i) << " " ;
+    cout << endl;
 
 
     return 0;
