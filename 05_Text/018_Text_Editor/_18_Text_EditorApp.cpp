@@ -15,13 +15,15 @@
 
 #include "_18_Text_EditorApp.h"
 #include "_18_Text_EditorMain.h"
-
+//#include "wx/settings.h"
 IMPLEMENT_APP(_18_Text_EditorApp);
 
 bool _18_Text_EditorApp::OnInit()
 {
 
-    _18_Text_Editor_Dialog* dlg = new _18_Text_Editor_Dialog(0L, _("wxWidgets Text Editor"));
+    _18_Text_Editor_Frame* dlg = new _18_Text_Editor_Frame(0L, _("wxWidgets Text Editor"));
+    //dlg->SetBackgroundColour( wxSystemSettings::GetColour(  wxNullColour ) );
+    dlg->SetBackgroundColour( wxNullColour );
     dlg->SetIcon(wxICON(aaaa)); // To Set App Icon
     dlg->Show();
     return true;

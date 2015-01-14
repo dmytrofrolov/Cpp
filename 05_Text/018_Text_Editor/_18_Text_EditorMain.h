@@ -17,11 +17,11 @@
 
 #include <wx/button.h>
 #include <wx/statline.h>
-class _18_Text_Editor_Dialog: public wxDialog
+class _18_Text_Editor_Frame: public wxFrame
 {
     public:
-        _18_Text_Editor_Dialog(wxDialog *dlg, const wxString& title);
-        ~_18_Text_Editor_Dialog();
+        _18_Text_Editor_Frame(wxFrame *dlg, const wxString& title);
+        ~_18_Text_Editor_Frame();
 
     protected:
         enum
@@ -29,7 +29,12 @@ class _18_Text_Editor_Dialog: public wxDialog
             idBtnQuit = 1000,
             idBtnAbout,
             idBtnLoad,
-            idBtnSave
+            idBtnSave,
+
+            idMenuLoad,
+            idMenuSave,
+            idMenuQuit,
+            idMenuAbout
         };
         wxStaticText* m_staticText1;
         wxButton* BtnAbout;

@@ -19,7 +19,7 @@
 
 1412627644 d:\frolov\codeblocks\mingw\wxwidgets\include\wx\msw\rcdefs.h
 
-1421141026 source:d:\frolov\cpp\cpp\05_text\018_text_editor\_18_text_editorapp.cpp
+1421226652 source:d:\frolov\cpp\cpp\05_text\018_text_editor\_18_text_editorapp.cpp
 	"wx_pch.h"
 	"_18_Text_EditorApp.h"
 	"_18_Text_EditorMain.h"
@@ -1710,7 +1710,7 @@
 1412627644 d:\frolov\codeblocks\mingw\wxwidgets\include\wx\univ\theme.h
 	"wx/string.h"
 
-1421141026 d:\frolov\cpp\cpp\05_text\018_text_editor\_18_text_editormain.h
+1421225282 d:\frolov\cpp\cpp\05_text\018_text_editor\_18_text_editormain.h
 	<wx/wx.h>
 	"_18_Text_EditorApp.h"
 	<wx/button.h>
@@ -2982,7 +2982,7 @@
 
 1412627642 d:\frolov\codeblocks\mingw\wxwidgets\include\wx\generic\statline.h
 
-1421141026 source:d:\frolov\cpp\cpp\05_text\018_text_editor\_18_text_editormain.cpp
+1421226699 source:d:\frolov\cpp\cpp\05_text\018_text_editor\_18_text_editormain.cpp
 	"wx_pch.h"
 	"_18_Text_EditorMain.h"
 
