@@ -182,6 +182,8 @@ After you've established an employee hierarchy, create a Company class that allo
 
 **Family Tree Creator** - Create a class called Person which will have a name, when they were born and when (and if) they died. Allow the user to create these Person classes and put them into a family tree structure. Print out the tree to the screen.
 
+**Tic tac toe** - Implement simple game
+
 [To content&#8679;](#content)
 
 08_Threading
