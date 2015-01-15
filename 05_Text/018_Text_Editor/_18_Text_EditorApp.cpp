@@ -24,6 +24,7 @@ bool _18_Text_EditorApp::OnInit()
     _18_Text_Editor_Frame* dlg = new _18_Text_Editor_Frame(0L, _("wxWidgets Text Editor"));
     //dlg->SetBackgroundColour( wxSystemSettings::GetColour(  wxNullColour ) );
     dlg->SetBackgroundColour( wxNullColour );
+    wxFont::SetDefaultEncoding(wxFONTENCODING_CP1251);
     dlg->SetIcon(wxICON(aaaa)); // To Set App Icon
     dlg->Show();
     return true;

@@ -111,6 +111,8 @@ _18_Text_Editor_Frame::_18_Text_Editor_Frame(wxFrame *dlg, const wxString &title
     this->CreateStatusBar(2);
     this->SetStatusText(wxT("Edit some text file!"));
 
+    //TextArea1->SetDefaultStyle();
+
     // add left and right to Main
     bSizer1->Add(bSizerLeft, 0, wxEXPAND, 5);
     bSizer1->Add(bSizer2, 1, wxEXPAND, 5);
