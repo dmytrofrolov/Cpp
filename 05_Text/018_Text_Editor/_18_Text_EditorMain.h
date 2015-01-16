@@ -46,6 +46,7 @@ class _18_Text_Editor_Frame: public wxFrame
         wxTextCtrl* TextArea1;
 
     private:
+        void OnSize(wxSizeEvent& event);
         void OnClose(wxCloseEvent& event);
         void OnQuit(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);

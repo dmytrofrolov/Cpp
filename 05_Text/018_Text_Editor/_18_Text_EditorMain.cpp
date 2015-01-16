@@ -45,6 +45,7 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 
 
 BEGIN_EVENT_TABLE(_18_Text_Editor_Frame, wxFrame)
+    EVT_SIZE(_18_Text_Editor_Frame::OnSize)
     EVT_CLOSE(_18_Text_Editor_Frame::OnClose)
     EVT_BUTTON(idBtnQuit, _18_Text_Editor_Frame::OnQuit)
     EVT_BUTTON(idBtnAbout, _18_Text_Editor_Frame::OnAbout)
@@ -57,7 +58,7 @@ BEGIN_EVENT_TABLE(_18_Text_Editor_Frame, wxFrame)
 END_EVENT_TABLE()
 
 _18_Text_Editor_Frame::_18_Text_Editor_Frame(wxFrame *dlg, const wxString &title)
-    : wxFrame(dlg, -1, title,wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX))
+    : wxFrame(dlg, -1, title,wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE)
 {
     this->SetSizeHints(wxDefaultSize, wxDefaultSize);
 
@@ -169,6 +170,15 @@ void _18_Text_Editor_Frame::OnAbout(wxCommandEvent &event)
     wxString msg = wxbuildinfo(long_f);
     msg+='\n'+TextArea1->GetValue();
     wxMessageBox(msg, _("Welcome to..."));
+}
+
+void _18_Text_Editor_Frame::OnSize(wxSizeEvent &event)
+{
+wxSize newSize = event.GetSize();
+wxString textToAppend = wxString::Format(wxT("%i"),newSize.GetWidth());
+textToAppend+=" "+wxString::Format(wxT("%i"),newSize.GetHeight())+'\n';
+
+TextArea1->AppendText(textToAppend);//+" "+wxT(newSize.GetHeight())+"\n");
 }
 
 
