@@ -25,6 +25,7 @@ bool _18_Text_EditorApp::OnInit()
     //dlg->SetBackgroundColour( wxSystemSettings::GetColour(  wxNullColour ) );
     dlg->SetBackgroundColour( wxNullColour );
     wxFont::SetDefaultEncoding(wxFONTENCODING_CP1251);
+    dlg->SetMinSize(wxSize(350, 235));
     dlg->SetIcon(wxICON(aaaa)); // To Set App Icon
     dlg->Show();
     return true;

@@ -66,31 +66,33 @@ _18_Text_Editor_Frame::_18_Text_Editor_Frame(wxFrame *dlg, const wxString &title
     wxBoxSizer* bSizer1;
     bSizer1 = new wxBoxSizer(wxHORIZONTAL);
 
-    //left part
+    //left part begin
     wxBoxSizer* bSizerLeft;
     bSizerLeft = new wxBoxSizer(wxVERTICAL);
-    m_staticText1 = new wxStaticText(this, wxID_ANY, wxT("Welcome To wxWidgets\nText editor"), wxDefaultPosition, wxDefaultSize, 0);
+    m_staticText1 = new wxStaticText(this, wxID_ANY, wxT("wxWidgets Text editor"), wxDefaultPosition, wxDefaultSize, 0);
     m_staticText1->SetFont(wxFont(20, 74, 90, 90, false, wxT("Arial")));
     bSizerLeft->Add(m_staticText1, 0, wxEXPAND, 5);
-    TextArea1 = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize(240, 100), wxTE_MULTILINE);
-    TextArea1->SetDefaultStyle(wxTextAttr(*wxRED));
-    TextArea1->AppendText("");
-    bSizerLeft->Add(TextArea1, 0, wxALL, 5);
 
-    //right part
+    //top buttons
     wxBoxSizer* bSizer2;
-    bSizer2 = new wxBoxSizer(wxVERTICAL);
+    bSizer2 = new wxBoxSizer(wxHORIZONTAL);
 
     BtnLoad = new wxButton(this, idBtnLoad, wxT("&Load"), wxDefaultPosition, wxDefaultSize, 0);
     bSizer2->Add(BtnLoad, 0, wxALL, 5);
     BtnSave = new wxButton(this, idBtnSave, wxT("&Save"), wxDefaultPosition, wxDefaultSize, 0);
     bSizer2->Add(BtnSave, 0, wxALL, 5);
-    m_staticline1 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL);
-    bSizer2->Add(m_staticline1, 0, wxALL|wxEXPAND, 5);
     BtnAbout = new wxButton(this, idBtnAbout, wxT("&About"), wxDefaultPosition, wxDefaultSize, 0);
     bSizer2->Add(BtnAbout, 0, wxALL, 5);
     BtnQuit = new wxButton(this, idBtnQuit, wxT("&Quit"), wxDefaultPosition, wxDefaultSize, 0);
     bSizer2->Add(BtnQuit, 0, wxALL, 5);
+
+    bSizerLeft->Add(bSizer2, 0, wxEXPAND, 1);
+
+    TextArea1 = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize(340, 100), wxTE_MULTILINE);
+    TextArea1->SetDefaultStyle(wxTextAttr(*wxRED));
+    TextArea1->AppendText("");
+    bSizerLeft->Add(TextArea1, 0, wxALL, 1);
+
 
     //add main menu to Main frame
     wxMenuBar* mainMenu = new wxMenuBar();
@@ -116,7 +118,6 @@ _18_Text_Editor_Frame::_18_Text_Editor_Frame(wxFrame *dlg, const wxString &title
 
     // add left and right to Main
     bSizer1->Add(bSizerLeft, 0, wxEXPAND, 5);
-    bSizer1->Add(bSizer2, 1, wxEXPAND, 5);
     this->SetSizer(bSizer1);
     this->Layout();
     bSizer1->Fit(this);
@@ -175,10 +176,10 @@ void _18_Text_Editor_Frame::OnAbout(wxCommandEvent &event)
 void _18_Text_Editor_Frame::OnSize(wxSizeEvent &event)
 {
 wxSize newSize = event.GetSize();
-wxString textToAppend = wxString::Format(wxT("%i"),newSize.GetWidth());
-textToAppend+=" "+wxString::Format(wxT("%i"),newSize.GetHeight())+'\n';
-
-TextArea1->AppendText(textToAppend);//+" "+wxT(newSize.GetHeight())+"\n");
+//wxString textToAppend = wxString::Format(wxT("%i"),newSize.GetWidth());
+//textToAppend+=" "+wxString::Format(wxT("%i"),newSize.GetHeight())+'\n';
+TextArea1->SetSize(wxSize(newSize.GetWidth()-10,newSize.GetHeight()-135));
+//TextArea1->AppendText(textToAppend);//+" "+wxT(newSize.GetHeight())+"\n");
 }
 
 
