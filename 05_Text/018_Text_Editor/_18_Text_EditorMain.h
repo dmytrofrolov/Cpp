@@ -27,7 +27,7 @@ class _18_Text_Editor_Frame: public wxFrame
         enum
         {
             idBtnQuit = 1000,
-            idBtnAbout,
+            idBtnNew,
             idBtnLoad,
             idBtnSave,
 
@@ -37,7 +37,7 @@ class _18_Text_Editor_Frame: public wxFrame
             idMenuAbout
         };
         wxStaticText* m_staticText1;
-        wxButton* BtnAbout;
+        wxButton* BtnNew;
         wxButton* BtnLoad;
         wxButton* BtnSave;
         wxStaticLine* m_staticline1;
@@ -49,9 +49,11 @@ class _18_Text_Editor_Frame: public wxFrame
         void OnSize(wxSizeEvent& event);
         void OnClose(wxCloseEvent& event);
         void OnQuit(wxCommandEvent& event);
+        void OnNew(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);
         void OnLoad(wxCommandEvent& event);
         void OnSave(wxCommandEvent& event);
+        int isEmptyOnClose(); //if you want to close or load file, check if user want to save it
         DECLARE_EVENT_TABLE()
 };
 

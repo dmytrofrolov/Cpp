@@ -48,7 +48,7 @@ BEGIN_EVENT_TABLE(_18_Text_Editor_Frame, wxFrame)
     EVT_SIZE(_18_Text_Editor_Frame::OnSize)
     EVT_CLOSE(_18_Text_Editor_Frame::OnClose)
     EVT_BUTTON(idBtnQuit, _18_Text_Editor_Frame::OnQuit)
-    EVT_BUTTON(idBtnAbout, _18_Text_Editor_Frame::OnAbout)
+    EVT_BUTTON(idBtnNew, _18_Text_Editor_Frame::OnNew)
     EVT_BUTTON(idBtnSave, _18_Text_Editor_Frame::OnSave)
     EVT_BUTTON(idBtnLoad, _18_Text_Editor_Frame::OnLoad)
     EVT_MENU(idMenuQuit, _18_Text_Editor_Frame::OnQuit)
@@ -77,12 +77,12 @@ _18_Text_Editor_Frame::_18_Text_Editor_Frame(wxFrame *dlg, const wxString &title
     wxBoxSizer* bSizer2;
     bSizer2 = new wxBoxSizer(wxHORIZONTAL);
 
+    BtnNew = new wxButton(this, idBtnNew, wxT("&New file"), wxDefaultPosition, wxDefaultSize, 0);
+    bSizer2->Add(BtnNew, 0, wxALL, 5);
     BtnLoad = new wxButton(this, idBtnLoad, wxT("&Load"), wxDefaultPosition, wxDefaultSize, 0);
     bSizer2->Add(BtnLoad, 0, wxALL, 5);
     BtnSave = new wxButton(this, idBtnSave, wxT("&Save"), wxDefaultPosition, wxDefaultSize, 0);
     bSizer2->Add(BtnSave, 0, wxALL, 5);
-    BtnAbout = new wxButton(this, idBtnAbout, wxT("&About"), wxDefaultPosition, wxDefaultSize, 0);
-    bSizer2->Add(BtnAbout, 0, wxALL, 5);
     BtnQuit = new wxButton(this, idBtnQuit, wxT("&Quit"), wxDefaultPosition, wxDefaultSize, 0);
     bSizer2->Add(BtnQuit, 0, wxALL, 5);
 
@@ -128,6 +128,30 @@ _18_Text_Editor_Frame::~_18_Text_Editor_Frame()
 {
 }
 
+void _18_Text_Editor_Frame::OnNew(wxCommandEvent& event){
+    int ans = this->isEmptyOnClose();
+    if(!ans){
+        TextArea1;
+    }
+}
+
+void _18_Text_Editor_Frame::OnLoad(wxCommandEvent& event)
+{
+    int ans = this->isEmptyOnClose();
+    if(!ans){
+        wxString caption = wxT("Choose a file");
+        wxString wildcard = wxT ("TXT files (*.txt)|*.txt|CPP files (*.cpp)|*.cpp");
+        wxString defaultDir = wxT("c:\\");
+        wxString defaultFilename = wxEmptyString;
+        wxFileDialog frame(this, caption, defaultDir, defaultFilename, wildcard, wxFD_OPEN);
+        if(frame.ShowModal()==wxID_OK){
+            wxString path = frame.GetPath();
+            //int filterIndex = frame.GetFilterIndex();
+            TextArea1->LoadFile(path);
+        }
+    }
+}
+
 void _18_Text_Editor_Frame::OnSave(wxCommandEvent& event)
 {
     wxString caption = wxT("Choose a file");
@@ -137,33 +161,25 @@ void _18_Text_Editor_Frame::OnSave(wxCommandEvent& event)
     wxFileDialog frame(this, caption, defaultDir, defaultFilename, wildcard, wxFD_SAVE);
     if(frame.ShowModal()==wxID_OK){
         wxString path = frame.GetPath();
-        int filterIndex = frame.GetFilterIndex();
+        //int filterIndex = frame.GetFilterIndex();
         TextArea1->SaveFile(path);
     }
 }
 
-void _18_Text_Editor_Frame::OnLoad(wxCommandEvent& event)
-{
-    wxString caption = wxT("Choose a file");
-    wxString wildcard = wxT ("TXT files (*.txt)|*.txt|CPP files (*.cpp)|*.cpp");
-    wxString defaultDir = wxT("c:\\");
-    wxString defaultFilename = wxEmptyString;
-    wxFileDialog frame(this, caption, defaultDir, defaultFilename, wildcard, wxFD_OPEN);
-    if(frame.ShowModal()==wxID_OK){
-        wxString path = frame.GetPath();
-        int filterIndex = frame.GetFilterIndex();
-        TextArea1->LoadFile(path);
-    }
-}
+
 
 void _18_Text_Editor_Frame::OnClose(wxCloseEvent &event)
 {
-    Destroy();
+    wxCommandEvent closeEvent;
+    this->OnQuit(closeEvent);
 }
 
 void _18_Text_Editor_Frame::OnQuit(wxCommandEvent &event)
 {
-    Destroy();
+    int ans = this->isEmptyOnClose();
+    if(!ans){
+        Destroy();
+    }
 }
 
 void _18_Text_Editor_Frame::OnAbout(wxCommandEvent &event)
@@ -182,7 +198,19 @@ TextArea1->SetSize(wxSize(newSize.GetWidth()-10,newSize.GetHeight()-135));
 //TextArea1->AppendText(textToAppend);//+" "+wxT(newSize.GetHeight())+"\n");
 }
 
-
+int _18_Text_Editor_Frame::isEmptyOnClose(){
+    if(!TextArea1->IsEmpty()){
+        int answer = wxMessageBox("Do you want to save changes?", "Confirm",
+            wxYES_NO | wxCANCEL);
+        wxCommandEvent saveEvent;
+        if (answer == wxYES){
+            this->OnSave(saveEvent);
+            return 0;
+            }
+        if(answer== wxCANCEL)return 1;
+    }
+    return 0;
+}
 //TODO :
 // - add change encoding
 // - change UI
