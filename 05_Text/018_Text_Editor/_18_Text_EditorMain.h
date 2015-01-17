@@ -31,6 +31,7 @@ class _18_Text_Editor_Frame: public wxFrame
             idBtnLoad,
             idBtnSave,
 
+            idMenuNew,
             idMenuLoad,
             idMenuSave,
             idMenuQuit,
@@ -53,6 +54,7 @@ class _18_Text_Editor_Frame: public wxFrame
         void OnAbout(wxCommandEvent& event);
         void OnLoad(wxCommandEvent& event);
         void OnSave(wxCommandEvent& event);
+        int saveFile();
         int isEmptyOnClose(); //if you want to close or load file, check if user want to save it
         DECLARE_EVENT_TABLE()
 };

@@ -1710,7 +1710,7 @@
 1412627644 d:\frolov\codeblocks\mingw\wxwidgets\include\wx\univ\theme.h
 	"wx/string.h"
 
-1421501250 d:\frolov\cpp\cpp\05_text\018_text_editor\_18_text_editormain.h
+1421502579 d:\frolov\cpp\cpp\05_text\018_text_editor\_18_text_editormain.h
 	<wx/wx.h>
 	"_18_Text_EditorApp.h"
 	<wx/button.h>

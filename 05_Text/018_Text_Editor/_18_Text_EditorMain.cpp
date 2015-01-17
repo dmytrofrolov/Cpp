@@ -55,6 +55,7 @@ BEGIN_EVENT_TABLE(_18_Text_Editor_Frame, wxFrame)
     EVT_MENU(idMenuAbout, _18_Text_Editor_Frame::OnAbout)
     EVT_MENU(idMenuSave, _18_Text_Editor_Frame::OnSave)
     EVT_MENU(idMenuLoad, _18_Text_Editor_Frame::OnLoad)
+    EVT_MENU(idMenuNew, _18_Text_Editor_Frame::OnNew)
 END_EVENT_TABLE()
 
 _18_Text_Editor_Frame::_18_Text_Editor_Frame(wxFrame *dlg, const wxString &title)
@@ -98,6 +99,7 @@ _18_Text_Editor_Frame::_18_Text_Editor_Frame(wxFrame *dlg, const wxString &title
     wxMenuBar* mainMenu = new wxMenuBar();
 
     wxMenu* fileMenu = new wxMenu;
+    fileMenu->Append(idMenuNew,wxT("&New file"), wxT("New file"));
     fileMenu->Append(idMenuLoad,wxT("&Load"), wxT("Load file"));
     fileMenu->Append(idMenuSave,wxT("&Save"), wxT("Save file"));
     fileMenu->Append(idMenuQuit,wxT("E&xit"), wxT("Exit"));
@@ -131,7 +133,7 @@ _18_Text_Editor_Frame::~_18_Text_Editor_Frame()
 void _18_Text_Editor_Frame::OnNew(wxCommandEvent& event){
     int ans = this->isEmptyOnClose();
     if(!ans){
-        TextArea1;
+        TextArea1->Clear();
     }
 }
 
@@ -154,6 +156,10 @@ void _18_Text_Editor_Frame::OnLoad(wxCommandEvent& event)
 
 void _18_Text_Editor_Frame::OnSave(wxCommandEvent& event)
 {
+    this->saveFile();
+}
+
+int _18_Text_Editor_Frame::saveFile(){
     wxString caption = wxT("Choose a file");
     wxString wildcard = wxT ("TXT files (*.txt)|*.txt|CPP files (*.cpp)|*.cpp");
     wxString defaultDir = wxT("c:\\");
@@ -162,10 +168,11 @@ void _18_Text_Editor_Frame::OnSave(wxCommandEvent& event)
     if(frame.ShowModal()==wxID_OK){
         wxString path = frame.GetPath();
         //int filterIndex = frame.GetFilterIndex();
-        TextArea1->SaveFile(path);
+        bool saveFileAns = TextArea1->SaveFile(path);
+        if(saveFileAns==true)return 0;
     }
+    return 1;
 }
-
 
 
 void _18_Text_Editor_Frame::OnClose(wxCloseEvent &event)
@@ -204,9 +211,11 @@ int _18_Text_Editor_Frame::isEmptyOnClose(){
             wxYES_NO | wxCANCEL);
         wxCommandEvent saveEvent;
         if (answer == wxYES){
-            this->OnSave(saveEvent);
-            return 0;
-            }
+            int saveAns = this->saveFile();
+            if(!saveAns){
+                return 0;
+            }else return 1;
+        }
         if(answer== wxCANCEL)return 1;
     }
     return 0;
