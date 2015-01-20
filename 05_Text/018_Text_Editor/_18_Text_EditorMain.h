@@ -45,6 +45,7 @@ class _18_Text_Editor_Frame: public wxFrame
         wxStaticLine* m_staticline2;
         wxButton* BtnQuit;
         wxTextCtrl* TextArea1;
+        wxString fileName, filePath;
 
     private:
         void OnSize(wxSizeEvent& event);

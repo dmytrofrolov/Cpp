@@ -133,6 +133,8 @@ _18_Text_Editor_Frame::~_18_Text_Editor_Frame()
 void _18_Text_Editor_Frame::OnNew(wxCommandEvent& event){
     int ans = this->isEmptyOnClose();
     if(!ans){
+        this->SetTitle("wxWidgets Text Editor");
+        this->fileName = wxEmptyString;
         TextArea1->Clear();
     }
 }
@@ -146,8 +148,12 @@ void _18_Text_Editor_Frame::OnLoad(wxCommandEvent& event)
         wxString defaultDir = wxT("c:\\");
         wxString defaultFilename = wxEmptyString;
         wxFileDialog frame(this, caption, defaultDir, defaultFilename, wildcard, wxFD_OPEN);
+
         if(frame.ShowModal()==wxID_OK){
             wxString path = frame.GetPath();
+            this->filePath = path;
+            this->fileName = frame.GetFilename();
+            this->SetTitle("wxWidgets Text Editor - "+this->fileName);
             //int filterIndex = frame.GetFilterIndex();
             TextArea1->LoadFile(path);
         }
@@ -163,7 +169,7 @@ int _18_Text_Editor_Frame::saveFile(){
     wxString caption = wxT("Choose a file");
     wxString wildcard = wxT ("TXT files (*.txt)|*.txt|CPP files (*.cpp)|*.cpp");
     wxString defaultDir = wxT("c:\\");
-    wxString defaultFilename = wxEmptyString;
+    wxString defaultFilename = this->fileName;
     wxFileDialog frame(this, caption, defaultDir, defaultFilename, wildcard, wxFD_SAVE);
     if(frame.ShowModal()==wxID_OK){
         wxString path = frame.GetPath();
