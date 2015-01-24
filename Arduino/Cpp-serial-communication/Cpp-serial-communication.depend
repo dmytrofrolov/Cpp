@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1422012775 source:d:\frolov\cpp\cpp\arduino\cpp-serial-communication\src\serialclass.cpp
+	"SerialClass.h"
+
+1422012756 d:\frolov\cpp\cpp\arduino\cpp-serial-communication\include\serialclass.h
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+

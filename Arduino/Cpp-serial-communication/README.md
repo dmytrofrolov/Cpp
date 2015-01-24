@@ -1,0 +1,1 @@
+Serial connection class you can find at [official page](http://playground.arduino.cc/Interfacing/CPPWindows).
