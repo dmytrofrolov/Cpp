@@ -88,6 +88,8 @@ Content
 
 **Sieve of Eratosthenes** - The sieve of Eratosthenes is one of the most efficient ways to find all of the smaller primes (below 10 million or so).
 
+**2048 Solver** - Make function that takes array with field, choose what steps user can make and return best move you can do!
+
 [To content&#8679;](#content)
 
 03_Graph
