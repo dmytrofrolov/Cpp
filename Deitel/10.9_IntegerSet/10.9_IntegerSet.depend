@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1422447185 source:d:\frolov\cpp\cpp\deitel\10.9_integerset\main.cpp
+	<iostream>
+	"IntegerSet.h"
+
+1422446101 d:\frolov\cpp\cpp\deitel\10.9_integerset\include\integerset.h
+
+1422447477 source:d:\frolov\cpp\cpp\deitel\10.9_integerset\src\integerset.cpp
+	"IntegerSet.h"
+	<iostream>
+
