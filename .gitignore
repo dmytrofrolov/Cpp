@@ -29,3 +29,8 @@ Deitel/08.25_Labyrinth/.idea/
 06_Networking/021_FTP_Program/
 Arduino/Cpp-serial-communication/bin/
 Arduino/Cpp-serial-communication/obj/
+/obj/
+/bin/
+Deitel/10.9_IntegerSet/bin/Debug/10.exe
+*.o
+*.exe
