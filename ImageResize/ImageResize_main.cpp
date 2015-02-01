@@ -33,19 +33,25 @@ int main( int argc, char** argv )
 		const char * tempSource = dirList[i].c_str();
 		IplImage *source = cvLoadImage(tempSource);
 		cout << dirList[i] << endl;
-
-		// declare a destination IplImage object with correct size, depth and channels
-		IplImage *destination = cvCreateImage( cvSize((int)((source->width*percent)/100) , (int)((source->height*percent)/100) ), source->depth, source->nChannels );
-
-		//use cvResize to resize source to a destination image
-		cvResize(source, destination);
-		string tempDestinationName = newFilePrefix + dirList[i];
-		const char * tempDest = tempDestinationName.c_str();
+		int imageWidth = source->width;
+		int imageHeight = source->height;
+		if(imageWidth>600){
+			int percent = 600/imageWidth;
 		
-		// save image with a name supplied with a second argument
-		cvSaveImage( tempDest, destination );
-		cout << "Converting: " << tempSource << " to " << tempDest << " " << (i+1)*100/dirList.size() << "% done." <<  endl;
+			// declare a destination IplImage object with correct size, depth and channels
+			IplImage *destination = cvCreateImage( cvSize((int)((imageWidth*percent)/100) , (int)((imageHeight*percent)/100) ), source->depth, source->nChannels );
 
+			//use cvResize to resize source to a destination image
+			cvResize(source, destination);
+			string tempDestinationName = newFilePrefix + dirList[i];
+			const char * tempDest = tempDestinationName.c_str();
+			
+			// save image with a name supplied with a second argument
+			cvSaveImage( tempDest, destination );
+			cout << "Converting: " << tempSource << " to " << tempDest << " " << (i+1)*100/dirList.size() << "% done." <<  endl;
+		}else{
+			cout << "This image is too smal=(" << end;
+		}
 	}
 	
 return 0;
