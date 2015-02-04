@@ -70,7 +70,7 @@ _18_Text_Editor_Frame::_18_Text_Editor_Frame(wxFrame *dlg, const wxString &title
     //left part begin
     wxBoxSizer* bSizerLeft;
     bSizerLeft = new wxBoxSizer(wxVERTICAL);
-    m_staticText1 = new wxStaticText(this, wxID_ANY, wxT("wxWidgets Text editor"), wxDefaultPosition, wxDefaultSize, 0);
+    m_staticText1 = new wxStaticText(this, wxID_ANY, wxT("wxWidgets Text Editor"), wxDefaultPosition, wxDefaultSize, 0);
     m_staticText1->SetFont(wxFont(20, 74, 90, 90, false, wxT("Arial")));
     bSizerLeft->Add(m_staticText1, 0, wxEXPAND, 5);
 
