@@ -6,3 +6,5 @@
 *.o
 *.exe
 .DS_Store
+
+*.depend
