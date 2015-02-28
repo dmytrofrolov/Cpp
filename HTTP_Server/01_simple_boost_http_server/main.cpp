@@ -30,11 +30,28 @@ int main()
         acceptor.accept(socket);
 
         //message to return
-        string message = "Hello world!";
+        ///string message = "Hello world!";
 
         //write boost::asio::buffer(message) to socket stream
-        boost::asio::write(socket, boost::asio::buffer(message));
+        ///boost::asio::write(socket, boost::asio::buffer(message));
 
+        //buffer for socket receiving the info
+        char tempBuffer[1024];
+
+        //error code object for handling errors
+        boost::system::error_code ec;
+
+        //how big does response is
+        size_t bytesTransferred = socket.receive(boost::asio::buffer(tempBuffer), {}, ec);
+
+        //string with response text for future parsing
+        string response;
+
+        //if there are not errors write boffer into response
+        if (!ec) response.append(tempBuffer, tempBuffer + bytesTransferred);
+
+        cout << "connection " << endl;
+        boost::asio::write(socket, boost::asio::buffer(response));
     }
 
     return 0;
