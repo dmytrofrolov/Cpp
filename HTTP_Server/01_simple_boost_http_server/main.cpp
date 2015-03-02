@@ -36,8 +36,14 @@ int main()
     //acceptor object is created to listen for new connections
     tcp::acceptor acceptor (io_service, tcp::endpoint(tcp::v4(), 1334));
 
+    //server is teady
+    std::cout << "localhost is ready on port 1334" << std::endl;
+
     //it is create a socket and wait for a connection
     while(1){
+        //server is waiting
+        std::cout << "waiting for a connection..." << std::endl;
+
         //create socket object
         tcp::socket socket(io_service);
 
@@ -60,7 +66,7 @@ int main()
         size_t bytesTransferred = socket.receive(buffer(tempBuffer), {}, ec);
 
         //string with response text for future parsing
-        string response;
+        std::string response;
 
         //if there are not errors write boffer into response
         if (!ec) response.append(tempBuffer, tempBuffer + bytesTransferred);
@@ -123,8 +129,8 @@ int main()
                 std::cout<<previousEndpoint<<std::endl;
 
                 //open socket to previousEndpoint
-                tcp::socket socket(io_service);
-                socket.connect(previousEndpoint);
+                tcp::socket socketReceive(io_service);
+                socketReceive.connect(previousEndpoint);
 
                 //request text
                 boost::asio::streambuf request;
@@ -136,25 +142,82 @@ int main()
                               << "Connection: Keep-Alive\r\n\r\n";
 
                 //write request to socket (where we will send an request)
-                boost::asio::write(socket, request);
+                boost::asio::write(socketReceive, request);
 
-                //buffer for getting last response
-                boost::array< char, 512 > buf;
+                //const unsigned short int bufferSize = 512;
 
                 //if there are some errors
                 boost::system::error_code error;
 
-                //length of response
-                std::size_t length;
+                //temporary stream buffer for reading from socket
+                boost::asio::streambuf responseBuf1;
+                //string stream to transfer from buffer to string
+                std::ostringstream ss;
 
-                //read the response from socket
-                length = boost::asio::read(socket, boost::asio::buffer(buf, 1024), boost::asio::transfer_all(), error);
+                //while it can read something from socket
+                while ( boost::asio::read(socketReceive, responseBuf1,
+                        boost::asio::transfer_at_least(1), error)){
+                    //add result what it reads to string stream
+                    ss << &responseBuf1;
+                    //move stream to string
+                    response = ss.str();
+                    //let find end of html file by </html> constant
+                    string endOfHTML = "</html>";
+                    std::size_t found = response.find(endOfHTML);
+                    //if end founds, cout position of end and brake the loop
+                    if (found!=std::string::npos){
+                        cout << "Is true : " << found << endl;
+                        break;
+                    }
 
-                //add response to string for future writing
-                for(unsigned int i = 0; i < length; i++){
-                    char tempCh = buf[i];
-                    response+=(tempCh);
                 }
+
+                /*
+                ///read info from socket v.does not work.01
+                do{
+
+                    length = boost::asio::read(
+                        socketReceive,
+                        boost::asio::buffer(buf, bufferSize),
+                        boost::asio::transfer_at_least(1),
+                        error);
+                    //length = socketReceive.read_some(boost::asio::buffer(buf),error); //boost::asio::read(socketReceive, boost::asio::buffer(buf), boost::asio::transfer_at_least(1), error);
+
+                    for(int i = 0; i<length; i++){
+                        response+=buf[i];
+                    }
+                    cout << "length:\t" << length << endl;
+                    cout << "error:\t" << error << endl;
+                    write(socket, buffer(response));
+                    response.clear();
+                }while(length>0);
+                */
+                //cout << "\n\tafter all:" <<length << endl;
+
+
+                //}
+                /*
+                ///read info from socket v.does not work.02
+                //while(length>0){
+                    //read the response from socket
+                    boost::asio::streambuf replyBuf;
+                    boost::asio::read_until(socket, replyBuf, '\r\n');
+                    //length = boost::asio::read(socket, boost::asio::buffer(buf), boost::asio::transfer_at_least(1), error);
+                    std::string retVal((std::istreambuf_iterator<char>(&replyBuf)),
+                        std::istreambuf_iterator<char>());
+                    cout << retVal << endl;
+                    response = retVal;
+
+                    //add response to string for future writing
+                    //for(unsigned int i = 0; i < length; i++){
+                    //    char tempCh = buf[i];
+                    //    response+=(tempCh);
+                    //}
+                //}
+                */
+
+
+
             }
             catch (std::exception& e){
                 std::cerr << e.what() << std::endl;
@@ -163,6 +226,9 @@ int main()
 
         //write result to main socket (for localhost)
         write(socket, buffer(response));
+
+        //exit from connection
+        std::cout << "closing a connection..." << endl << endl;
 
     }
 
