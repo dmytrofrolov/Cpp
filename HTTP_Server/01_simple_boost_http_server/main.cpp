@@ -61,7 +61,7 @@ int main()
 
         cout << "Connection #" << totalConnectionCounter++ << endl;
         boost::this_thread::sleep(boost::posix_time::milliseconds(10));
-        response.append("asd");
+        response.append("Hello everyone!");
         write(socket, buffer(response));
 
     }
