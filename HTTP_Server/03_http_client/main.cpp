@@ -5,12 +5,23 @@ using boost::asio::ip::tcp;
 
 int main(int argc, char* argv[])
 {
+
+    //using "client <host> <port> <address>"
+    //<address> is web link or ip address
+
     try
     {
-        //all boost programs should have at least one io service
-        boost::asio::io_service io_service;
+        //create connection
 
+        //create socket
 
+        //connect to socket
+
+        //write something to socket
+
+        //read response
+
+        //write response to console
 
     }
     catch (std::exception& e)
