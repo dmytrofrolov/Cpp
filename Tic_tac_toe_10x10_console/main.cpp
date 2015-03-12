@@ -3,11 +3,12 @@
 // Author : Dmytro Frolov
 
 #include <iostream>
-
+#include <TicTacToe.h>
 using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    TicTacToe game(3, 3);
+
     return 0;
 }

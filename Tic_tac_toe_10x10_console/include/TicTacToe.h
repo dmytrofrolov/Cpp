@@ -6,11 +6,12 @@ class TicTacToe
 {
     public:
         TicTacToe(unsigned int sizeOfBoard = 3, unsigned int toWin = 3);
+        bool isEmpty(int, int);
         virtual ~TicTacToe();
     private:
         unsigned const int bordSize;
         unsigned const int inRowToWin;
-        unsigned short int **board;
+        unsigned int **board;
 };
 
 #endif // TICTACTOE_H
