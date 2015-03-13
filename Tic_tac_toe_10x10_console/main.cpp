@@ -8,7 +8,10 @@ using namespace std;
 
 int main()
 {
-    TicTacToe game(3, 3);
-
+    TicTacToe game(4, 3);
+    game.makeMove(1,1,1);
+    game.makeMove(2,1,1);
+    game.makeMove(3,1,1);
+    cout << game.isWon(1);
     return 0;
 }
