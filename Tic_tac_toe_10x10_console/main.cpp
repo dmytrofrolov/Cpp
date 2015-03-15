@@ -8,10 +8,20 @@ using namespace std;
 
 int main()
 {
-    TicTacToe game(4, 3);
-    game.makeMove(1,1,1);
-    game.makeMove(2,1,1);
-    game.makeMove(3,1,1);
-    cout << game.isWon(1);
+    int gameSize = 3;
+    TicTacToe game(gameSize, 3);
+    int current = 2;
+    bool currentWon = false;
+    int x = 0, y = 0;
+    while(!currentWon){
+        current = current==1?2:1;
+        cout << "For player : " << current << " input : x (0-" <<  gameSize-1 << ") : ";
+        cin >> x;
+        cout << " input : y (0-" <<  gameSize-1 << ") : ";
+        cin >> y;
+        game.makeMove(x, y, current);
+        currentWon = game.isWon(current);
+    }
+    cout << "First : " << (current==1&&currentWon?1:0) << " Second : " << (current==2&&currentWon?1:0) << endl;
     return 0;
 }
