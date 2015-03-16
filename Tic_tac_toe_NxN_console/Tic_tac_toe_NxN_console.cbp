@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Tic_tac_toe_10x10_console" />
+		<Option title="Tic_tac_toe_NxN_console" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 		</Build>
@@ -20,7 +21,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="README.md" />
+		<Unit filename="include/TicTacToe.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/TicTacToe.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
