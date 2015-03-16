@@ -20,21 +20,21 @@ TicTacToe::~TicTacToe()
 }
 
 
-bool TicTacToe::isEmpty(unsigned int row,unsigned int col){
-    if(row<=boardSize && col<=boardSize && board[row][col])return false;
+bool TicTacToe::isEmpty(unsigned int row,unsigned int col)const{
+    if(row < boardSize && col < boardSize && board[row][col])return false;
     return true;
 }
 
 
 bool TicTacToe::makeMove(unsigned int row, unsigned int col, unsigned int player){
-    if(row<=boardSize && col<=boardSize && isEmpty(row,col)){
+    if(row < boardSize && col < boardSize && isEmpty(row,col)){
         board[row][col]=player;
         return true;
     }
     return false;
 }
 
-bool TicTacToe::isWon(unsigned int player){
+bool TicTacToe::isWon(unsigned int player)const{
 
     unsigned int wonInLine = 0;
     for(unsigned int row = 0; row < boardSize; row++)
@@ -56,4 +56,9 @@ bool TicTacToe::isWon(unsigned int player){
     //add code to test diagonals
 
     return false;
+}
+
+unsigned int TicTacToe::getItem(unsigned int row, unsigned int col)const{
+    if(col<boardSize && row < boardSize)return board[row][col];
+    return 0;
 }
