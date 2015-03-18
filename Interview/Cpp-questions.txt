@@ -1,0 +1,23 @@
+TODO List:
+Read all this sites:
+- http://www.geeksforgeeks.org/c-plus-plus/
+a lot of material sorted by categories
+
+- http://www.indiabix.com/cpp-programming/questions-and-answers/
+a lot of questions sorted
+
+- http://www.careerride.com/c++-interview-questions-answer-part-2.aspx
+about 200 questions
+
+- http://geeksquiz.com/commonly-asked-c-interview-questions-set-1/
+a few questions
+
+- http://www.devbistro.com/tech-interview-questions/Cplusplus.jsp
+some questions
+
+- http://a4academics.com/interview-questions/57-c-plus-plus/419-cpp-interview-questions-answers
+some questions
+
+- http://www.geekinterview.com/Interview-Questions/Languages/C-Plus-Plus
+forum where some questions post time to time
+
