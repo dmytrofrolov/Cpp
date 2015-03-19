@@ -11,6 +11,7 @@ class TicTacToe
         int isWon(unsigned int player)const; //0 if games going 1 - if 1st won, 2 - if 2nd won and -1 if noone won
         unsigned int getItem(unsigned int, unsigned int)const;
         virtual ~TicTacToe();
+        void printMeToConsole()const;
     private:
         unsigned const int boardSize;
         unsigned const int inRowToWin;
