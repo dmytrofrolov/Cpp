@@ -8,8 +8,9 @@ using namespace std;
 
 int main()
 {
-    int gameSize = 4;
-    int movesToWin = 2;
+
+    int gameSize = 3;
+    int movesToWin = 3;
     TicTacToe game(gameSize, movesToWin);
 
     //current player
@@ -25,10 +26,10 @@ int main()
         current = current==1?2:1;
         bool isRightMove = true;
         do{
-        cout << "For player : " << current << " input (row col) : (1-" <<  gameSize << ") : " << endl;
-        cin >> x >> y;
-        x--;y--;
-        isRightMove = game.makeMove(x, y, current);
+            cout << "For player : " << current << " input (row col) : (1-" <<  gameSize << ") : " << endl;
+            cin >> x >> y;
+            x--;y--;
+            isRightMove = game.makeMove(x, y, current);
         }while(!isRightMove);
         currentWon = game.isWon(current);
         game.printMeToConsole();
