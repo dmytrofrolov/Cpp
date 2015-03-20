@@ -118,16 +118,17 @@ unsigned int TicTacToe::getItem(unsigned int row, unsigned int col)const{
 
 
 void TicTacToe::printMeToConsole()const{
+    char playersCh[] = { '-', 'X', '0'};
     cout << "\033[2J\033[1;1H";
     cout << "   : ";
     for(unsigned int i = 1; i <= boardSize; i++)
         cout << i << " ";
     cout << endl;
-    cout<<"-----------\n";
+    cout<<"--------------\n";
     for(unsigned int i = 0; i < boardSize; i++){
         cout << std::setw(2) << i+1 <<" : ";
         for(unsigned int j = 0; j < boardSize; j++){
-            cout << getItem(i, j) << " ";
+            cout << playersCh[getItem(i, j)] << " ";
         }
         cout << endl;
     }

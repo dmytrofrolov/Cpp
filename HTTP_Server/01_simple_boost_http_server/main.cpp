@@ -161,6 +161,7 @@ int main()
                     ss << &responseBuf1;
                     //move stream to string
                     response = ss.str();
+
                     //let find end of html file by </html> constant
                     string endOfHTML = "</html>";
                     std::size_t found = response.find(endOfHTML);
@@ -171,6 +172,7 @@ int main()
                     }
 
                 }
+                cout << response << endl;
 
                 /*
                 ///read info from socket v.does not work.01

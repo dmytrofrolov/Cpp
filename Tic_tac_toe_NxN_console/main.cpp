@@ -3,13 +3,13 @@
 // Author : Dmytro Frolov
 
 #include <iostream>
-#include <TicTacToe.h>
+#include "TicTacToe.h"
 using namespace std;
 
 int main()
 {
 
-    int gameSize = 3;
+    int gameSize = 5;
     int movesToWin = 3;
     TicTacToe game(gameSize, movesToWin);
 
