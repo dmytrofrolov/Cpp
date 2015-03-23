@@ -37,7 +37,7 @@ int main()
     cout << "First : " << (current==1&&currentWon?1:0) << " Second : " << (current==2&&currentWon?1:0) << endl;
     return 0;
 }
-
+// some inputs for testing
 //0 2 0 0 1 1 0 1 2 0
 //0 0 0 1 1 1 0 2 2 2
 //0 1 1 1 1 0 0 0 2 0
