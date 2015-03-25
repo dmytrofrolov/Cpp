@@ -154,6 +154,8 @@ int main()
                 //string stream to transfer from buffer to string
                 std::ostringstream ss;
 
+                cout << "A" << socketReceive.available() << endl;
+
                 //while it can read something from socket
                 while ( boost::asio::read(socketReceive, responseBuf1,
                         boost::asio::transfer_at_least(1), error)){
@@ -166,9 +168,13 @@ int main()
                     string endOfHTML = "</html>";
                     std::size_t found = response.find(endOfHTML);
                     //if end founds, cout position of end and brake the loop
-                    if (found!=std::string::npos){
-                        cout << "Is true : " << found << endl;
-                        break;
+                    ///if (found!=std::string::npos){
+                    ///    cout << "Is true : " << found << endl;
+                    ///    break;
+                    ///}
+                    //
+                    if(response.find(boost::asio::error::eof)){
+                        cout << "FOUND EOF" << endl;
                     }
 
                 }
