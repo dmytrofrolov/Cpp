@@ -72,18 +72,19 @@ int main()
         if (!ec) response.append(tempBuffer, tempBuffer + bytesTransferred);
 
         cout << "Connection #" << totalConnectionCounter++ << endl;
-        //boost::this_thread::sleep(boost::posix_time::milliseconds(10));
+
+        string hostToOpen = "";
 
         //here it is necessary to parse response what we get
-        string hostToOpen = response.substr(response.find("GET /?q=")+8,response.find(" HTTP/1.1")-8);
-        //cout << "S:" << hostToOpen << ":E" << endl;
+        if(response.find("GET /?q=") && response.find(" HTTP/1.1"))
+            hostToOpen = response.substr(response.find("GET /?q=")+8,response.find(" HTTP/1.1")-8);
 
         //clear respons to not show it in browser
         response.clear();
 
 
         //start something strange ___________________
-        {
+        if(hostToOpen!=""){
             //
             /*
                when server gets and GET request it tries to find that query user sent
