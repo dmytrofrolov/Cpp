@@ -44,7 +44,3 @@ bool IntegerSet::isEqual(IntegerSet set1, IntegerSet set2){
     return true;
 }
 
-IntegerSet::~IntegerSet()
-{
-    //dtor
-}
