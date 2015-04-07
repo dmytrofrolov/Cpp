@@ -3,31 +3,41 @@
 // Author : Dmytro Frolov
 
 #include <iostream>
-#include <TicTacToe.h>
+#include "TicTacToe.h"
 using namespace std;
 
 int main()
 {
-    int gameSize = 3;
-    TicTacToe game(gameSize, 3);
+
+    int gameSize = 5;
+    int movesToWin = 3;
+    TicTacToe game(gameSize, movesToWin);
+
+    //current player
     int current = 2;
-    bool currentWon = false;
+
+    //user won (0 - game goes, 1 - 1st won, 2-2nd won, -1 - noone wons)
+    int currentWon = 0;
+
+    //for input choice
     int x = 0, y = 0;
-    while(!currentWon){
+    game.printMeToConsole();
+    while(!currentWon && currentWon!=-1){
         current = current==1?2:1;
-        cout << "For player : " << current << " input : row (0-" <<  gameSize-1 << ") : ";
-        cin >> x;
-        cout << " input : col (0-" <<  gameSize-1 << ") : ";
-        cin >> y;
-        game.makeMove(x, y, current);
+        bool isRightMove = true;
+        do{
+            cout << "For player : " << current << " input (row col) : (1-" <<  gameSize << ") : " << endl;
+            cin >> x >> y;
+            x--;y--;
+            isRightMove = game.makeMove(x, y, current);
+        }while(!isRightMove);
         currentWon = game.isWon(current);
-        for(int i = 0; i < gameSize; i++){
-            for(int j = 0; j < gameSize; j++){
-                cout << game.getItem(i, j) << " ";
-            }
-            cout << endl;
-        }
+        game.printMeToConsole();
     }
     cout << "First : " << (current==1&&currentWon?1:0) << " Second : " << (current==2&&currentWon?1:0) << endl;
     return 0;
 }
+// some inputs for testing
+//0 2 0 0 1 1 0 1 2 0
+//0 0 0 1 1 1 0 2 2 2
+//0 1 1 1 1 0 0 0 2 0

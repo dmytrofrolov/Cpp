@@ -72,18 +72,19 @@ int main()
         if (!ec) response.append(tempBuffer, tempBuffer + bytesTransferred);
 
         cout << "Connection #" << totalConnectionCounter++ << endl;
-        //boost::this_thread::sleep(boost::posix_time::milliseconds(10));
+
+        string hostToOpen = "";
 
         //here it is necessary to parse response what we get
-        string hostToOpen = response.substr(response.find("GET /?q=")+8,response.find(" HTTP/1.1")-8);
-        //cout << "S:" << hostToOpen << ":E" << endl;
+        if(response.find("GET /?q=") && response.find(" HTTP/1.1"))
+            hostToOpen = response.substr(response.find("GET /?q=")+8,response.find(" HTTP/1.1")-8);
 
         //clear respons to not show it in browser
         response.clear();
 
 
         //start something strange ___________________
-        {
+        if(hostToOpen!=""){
             //
             /*
                when server gets and GET request it tries to find that query user sent
@@ -161,62 +162,15 @@ int main()
                     ss << &responseBuf1;
                     //move stream to string
                     response = ss.str();
-                    //let find end of html file by </html> constant
-                    string endOfHTML = "</html>";
-                    std::size_t found = response.find(endOfHTML);
-                    //if end founds, cout position of end and brake the loop
-                    if (found!=std::string::npos){
-                        cout << "Is true : " << found << endl;
-                        break;
+
+                    cout << "Available : " << socketReceive.available() << endl;
+                    if(socketReceive.available(error) == 0){
+                        boost::this_thread::sleep_for(boost::chrono::seconds(1));
+                        if(socketReceive.available(error) == 0)
+                            break;
                     }
 
                 }
-
-                /*
-                ///read info from socket v.does not work.01
-                do{
-
-                    length = boost::asio::read(
-                        socketReceive,
-                        boost::asio::buffer(buf, bufferSize),
-                        boost::asio::transfer_at_least(1),
-                        error);
-                    //length = socketReceive.read_some(boost::asio::buffer(buf),error); //boost::asio::read(socketReceive, boost::asio::buffer(buf), boost::asio::transfer_at_least(1), error);
-
-                    for(int i = 0; i<length; i++){
-                        response+=buf[i];
-                    }
-                    cout << "length:\t" << length << endl;
-                    cout << "error:\t" << error << endl;
-                    write(socket, buffer(response));
-                    response.clear();
-                }while(length>0);
-                */
-                //cout << "\n\tafter all:" <<length << endl;
-
-
-                //}
-                /*
-                ///read info from socket v.does not work.02
-                //while(length>0){
-                    //read the response from socket
-                    boost::asio::streambuf replyBuf;
-                    boost::asio::read_until(socket, replyBuf, '\r\n');
-                    //length = boost::asio::read(socket, boost::asio::buffer(buf), boost::asio::transfer_at_least(1), error);
-                    std::string retVal((std::istreambuf_iterator<char>(&replyBuf)),
-                        std::istreambuf_iterator<char>());
-                    cout << retVal << endl;
-                    response = retVal;
-
-                    //add response to string for future writing
-                    //for(unsigned int i = 0; i < length; i++){
-                    //    char tempCh = buf[i];
-                    //    response+=(tempCh);
-                    //}
-                //}
-                */
-
-
 
             }
             catch (std::exception& e){
