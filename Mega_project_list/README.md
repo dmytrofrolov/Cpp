@@ -23,7 +23,7 @@ Content
 
 **01_Find PI to the Nth Digit** - Enter a number and have the program generate PI up to that many decimal places. Keep a limit to how far the program will go.
 
-**02_Find e to the Nth Digit** - Just like the previous problem, but with e instead of PI. Enter a number and have the program generate e up to that many decimal places. Keep a limit to how far the program will go.
+~~**02_Find e to the Nth Digit** - Just like the previous problem, but with e instead of PI. Enter a number and have the program generate e up to that many decimal places. Keep a limit to how far the program will go.~~
 
 ~~**03_Fibonacci Sequence** - Enter a number and have the program generate the Fibonacci sequence to that number or to the Nth number.~~
 
@@ -178,7 +178,7 @@ After you've established an employee hierarchy, create a Company class that allo
 
 **10_Family Tree Creator** - Create a class called Person which will have a name, when they were born and when (and if) they died. Allow the user to create these Person classes and put them into a family tree structure. Print out the tree to the screen.
 
-~**11_Tic tac toe** - Implement simple game~
+~~**11_Tic tac toe** - Implement simple game~~	
 
 [To content&#8679;](#content)
 
