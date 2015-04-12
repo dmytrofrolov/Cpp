@@ -51,8 +51,8 @@ unsigned int fibo(int n){
     if (fib[n-1]!=0&&fib[n-2]!=0)
         return fib[n-1]+fib[n-2];
 
-    fib[n-1]=fibo(n-1);
     fib[n-2]=fibo(n-2);
+    fib[n-1]=fibo(n-1);
 
     return fib[n-1]+fib[n-2];
 }
