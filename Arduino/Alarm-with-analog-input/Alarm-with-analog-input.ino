@@ -33,7 +33,7 @@ void loop() {
   outputValue = map(sensorValue, 0, 1023, 0, 255);
   
   // if outputValue is good enought
-  if(outputValue>15){
+  if(outputValue>20){
     // turn on the light
     digitalWrite(alarmOutPin, HIGH);
     // for 20 minutes
@@ -52,5 +52,5 @@ void loop() {
   Serial.println(outputValue);
 
   // wait for 0.5 second to next iteration
-  delay(500);
+  delay(100);
 }
