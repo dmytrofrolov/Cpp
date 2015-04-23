@@ -1,0 +1,5 @@
+https://github.com/daylerees/colour-schemes
+https://github.com/BoundInCode/AutoFileName
+https://github.com/revolunet/sublimetext-markdown-preview
+https://github.com/spadgos/sublime-jsdocs						/** tab
+https://github.com/timonwong/SublimeAStyleFormatter				ctrl+alt+f
