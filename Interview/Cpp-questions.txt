@@ -21,3 +21,5 @@ some questions
 - http://www.geekinterview.com/Interview-Questions/Languages/C-Plus-Plus
 forum where some questions post time to time
 
+- http://habrahabr.ru/post/117996/
+interview faq
